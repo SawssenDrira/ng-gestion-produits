@@ -1,0 +1,22 @@
+{
+  "produits": [
+    {
+      "id": 1,
+      "code": "x12",
+      "designation": "panier plastique",
+      "prix": 20
+    },
+    {
+      "id": 2,
+      "code": "y4",
+      "designation": "table en bois",
+      "prix": 100
+    },
+    {
+      "id": 3,
+      "code": "y10",
+      "designation": "salon en cuire",
+      "prix": 3000
+    }
+  ]
+}

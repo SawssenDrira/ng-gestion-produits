@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <div *ngIf="afficherFormulaireEdition"> <!-- Afficher le formulaire seulement en cas d'édition -->
+        <h1 class="mb-4">Fiche Produit</h1>
+        <form #produitForm="ngForm" (ngSubmit)="validerFormulaire(produitForm)">
+            <table class="table">
+                <tr>
+                    <td> Id: </td>
+                    <td> <input id="id" name="id" type="text" [(ngModel)]="produitCourant.id" required
+                            class="form-control" readonly /> </td>
+                </tr>
+                <tr>
+                    <td> Code: </td>
+                    <td> <input type="text" name="code" [(ngModel)]="produitCourant.code" class="form-control" /> </td>
+                </tr>
+                <tr>
+                    <td> Désignation: </td>
+                    <td> <input type="text" name="designation" [(ngModel)]="produitCourant.designation"
+                            class="form-control" /> </td>
+                </tr>
+                <tr>
+                    <td> Prix: </td>
+                    <td> <input type="text" name="prix" [(ngModel)]="produitCourant.prix" class="form-control" /> </td>
+                </tr>
+                <tr class="my-3">
+                    <td></td>
+                    <td>
+                        <button type="submit" class="btn btn-primary m-2" [disabled]="!produitForm.form.valid">
+                            <i class="bi bi-check"></i> Valider
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div>
+        <h1 class="mb-4">Liste des produits</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Code</th>
+                    <th>Désignation</th>
+                    <th>Prix</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of produits">
+                    <td>{{p.id}}</td>
+                    <td>{{p.code}}</td>
+                    <td>{{p.designation}}</td>
+                    <td>{{p.prix}}</td>
+                    <td>
+                        <button (click)="editerProduit(p)" class="btn btn-warning me-3">
+                            <i class="bi bi-pencil"></i> Editer
+                        </button>
+                        <button (click) ="supprimerProduit(p)" class="btn btn-danger"> 
+                            <i class="bi bi-trash"></i> Supprimer </button>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
